@@ -1,0 +1,10 @@
+
+
+-------------------------------------------------------------------
+0.4.2:
+
+-Initial fork from jenwachter/jquery.repeatable
+
+-BUG FIX: Properly track current amount of repeated elements (so any server-side-rendered elements are not overwritten next request submission)
+
+-------------------------------------------------------------------
