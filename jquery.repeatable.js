@@ -1,5 +1,5 @@
 
-// version 0.4.2, 2022/JUNE/2ND
+// version 0.40.2, 2022/JUNE/2ND
 
 (function ($) {
 
