@@ -8,3 +8,15 @@
 -BUG FIX: Properly track current amount of repeated elements (so any server-side-rendered elements are not overwritten next request submission)
 
 -------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+0.40.3:
+
+-Bug fixes
+
+-User experience improvements
+
+-Refactored semantics
+
+-------------------------------------------------------------------

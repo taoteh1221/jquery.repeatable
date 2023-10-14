@@ -53,6 +53,7 @@ require_once("Repopulator.php");
 		<script>
 		$(function() {
 			$(".todos_labels .repeatable").repeatable({
+          		prefix: 'new',
 				addTrigger: ".todos_labels .add",
 				deleteTrigger: ".todos_labels .delete",
 				template: "#todos_labels",

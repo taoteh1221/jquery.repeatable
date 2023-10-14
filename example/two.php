@@ -69,6 +69,7 @@ require_once("Repopulator.php");
 		<script>
 		$(function() {
 			$(".todos .repeatable").repeatable({
+          		prefix: 'new',
 				addTrigger: ".todos .add",
 				deleteTrigger: ".todos .add",
 				template: "#todos",
@@ -77,6 +78,7 @@ require_once("Repopulator.php");
 			});
 
 			$(".people .repeatable").repeatable({
+          		prefix: 'new',
 				addTrigger: ".people .add",
 				deleteTrigger: ".people .add",
 				template: "#people",

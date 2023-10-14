@@ -8,7 +8,7 @@ A jQuery plugin that allows you to easily create repeatable groups of form field
 
 #### Markup
 
-At a bare minimum, the html form should contain a container for which the repeatable items will populate and a button that when clicked, tells jquery.repeatable to add another item. The classes you use can be different than the example below, but make sure you register any differences when you call the plugin. See [settings](#settings) below.
+At a bare minimum, the html form should contain a container for which the repeatable items will populate and a button that when clicked, tells jquery.repeatable to add another item. The classes you use can be different than the example below, but make sure you register any differences when you call the plugin. See [config](#config) below.
 
 ```html
 <form>
@@ -24,6 +24,7 @@ At a bare minimum, the html form should contain a container for which the repeat
 The field group template contains html for the group of form fields that will be repeatable. Here are a few things to keep in mind:
 
 * The form fields need to be within a container element.
+* The form fields should contain the attribute `data-track-index` (see example below), so jquery.repeatable can run checks to avoid clashes from creating duplicate array index key names.
 * Include the symbol `{?}` when you need a unique value. You must at least include this symbol in the `name` attribute of your form fields to ensure they are all unique.
 * If you want users to be able to delete items, include a delete button in the template.
 
@@ -31,10 +32,10 @@ The field group template contains html for the group of form fields that will be
 <script type="text/template" id="people">
 <div class="field-group">
   <label for="firstname_{?}">First name</label>
-  <input type="text" name="firstname_{?}" value="" id="firstname_{?}" />
+  <input data-track-index="{?}" type="text" name="firstname_{?}" value="" id="firstname_{?}" />
 
   <label for="lastname_{?}">First name</label>
-  <input type="text" name="lastname_{?}" value="" id="lastname_{?}" />
+  <input data-track-index="{?}" type="text" name="lastname_{?}" value="" id="lastname_{?}" />
 
   <input type="button" class="delete" value="X" />
 </div>
@@ -56,10 +57,11 @@ $(function() {
 When a user clicks on the `.add` button, the script will render a new `.field-group` within the `.repeatable-container`. Each `{?}` will be replaced with a unique value so that each field is unique in the scope of the form. If a user clicks on a `.delete` button within a group, that group will be removed from the form.
 
 
-<a name="settings"></a>
-### Settings
+<a name="config"></a>
+### Config
 
 
+* __prefix__: _Optional_. (string) The form array index key name to be prepended to the form array index number. This can be set to '', so only the form array index number is used. Default: "new"
 * __addTrigger__: _Optional_. (string) The selector that when clicked, a new field group will be added to the repeatable item container. Default: ".add"
 * __deleteTrigger__: _Optional_. (string) The selector that when clicked, the field group the delete selector is within will be removed from the form. Default: ".delete"
 * __itemContainer__: _Optional_. (string) The selector that represents each field group container. Default: ".field-group"
